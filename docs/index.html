@@ -28,6 +28,7 @@
             <ul class="nav-menu">
                 <li><a href="#problems" class="nav-link" data-i18n="nav-problems">Problems Solved</a></li>
                 <li><a href="#approach" class="nav-link" data-i18n="nav-approach">Technical Approach</a></li>
+                <li><a href="#rating-settings" class="nav-link" data-i18n="nav-rating-settings">Rating Customization</a></li>
                 <li><a href="#formats" class="nav-link" data-i18n="nav-formats">Supported Files</a></li>
                 <li><a href="#security" class="nav-link" data-i18n="nav-security">Alpha Setup</a></li>
             </ul>
@@ -165,6 +166,100 @@
         </div>
     </section>
 
+    <!-- Rating Settings Section -->
+    <section id="rating-settings" class="rating-settings">
+        <div class="section-header">
+            <span class="section-label" data-i18n="rating-settings-label">Rating Tuning</span>
+            <h2 class="section-title" data-i18n="rating-settings-title">Customizing Quality Weights</h2>
+            <p class="section-desc" data-i18n="rating-settings-desc">Fine-tune the scoring engine to prioritize composition, sharpness, or facial expressions depending on the shoot.</p>
+        </div>
+        
+        <div class="rating-grid">
+            <div class="rating-info">
+                <p data-i18n="rating-intro">Culler.ai features a flexible <strong>Weighted Rating Mode</strong> that evaluates every photo across four quality metrics, merging them into a composite quality score (0.0 to 1.0) before applying star ratings.</p>
+                
+                <ul>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span data-i18n="metric-sharpness"><strong>Sharpness (20% default):</strong> Uses hardware-accelerated Laplacian variance to evaluate focus. Critical for action or sports shoots.</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span data-i18n="metric-composition"><strong>Composition & Aesthetics (35% default):</strong> Vision model scores framing, contrast, lighting, and general visual appeal. Ideal for landscapes and scenery.</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span data-i18n="metric-face"><strong>Face Quality (30% default):</strong> Evaluates face posture, visibility, and details. Essential for portraits and headshots.</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span data-i18n="metric-ear"><strong>Eye Aspect Ratio / EAR (15% default):</strong> Detects closed eyes or blinks to lower the score of ruined candid portraits.</span>
+                    </li>
+                </ul>
+
+                <p data-i18n="normalization-info"><strong>Proportional Normalization:</strong> Your slider settings are <em>raw weights</em>. If their sum is not 100%, the engine automatically normalizes them proportionally so they sum to 100% internally. Use the interactive panel to experiment with how weights normalize!</p>
+            </div>
+            
+            <div class="mac-settings-panel">
+                <div class="mac-settings-header">
+                    <span class="mac-settings-title" data-i18n="mac-panel-title">Processing Settings</span>
+                    <button class="mac-settings-btn-reset" onclick="resetSimulator()" data-i18n="mac-panel-reset">Reset Defaults</button>
+                </div>
+                
+                <div class="mac-settings-row" style="flex-direction: column; align-items: stretch; gap: 0.5rem;">
+                    <label class="mac-settings-label" style="width: auto;" data-i18n="mac-panel-mode">Rating Mode</label>
+                    <div class="mac-segmented-control">
+                        <button class="mac-seg-btn" id="mode-classic" onclick="setSimMode('classic')" data-i18n="mac-panel-classic">Classic Mode</button>
+                        <button class="mac-seg-btn active" id="mode-weighted" onclick="setSimMode('weighted')" data-i18n="mac-panel-weighted">Weighted Mode</button>
+                    </div>
+                </div>
+                
+                <div id="sim-sliders-group" class="mac-settings-group">
+                    <div class="mac-settings-row">
+                        <span class="mac-settings-label" data-i18n="mac-sharpness-lbl">Sharpness</span>
+                        <input type="range" class="mac-slider" id="val-sharpness" min="0" max="1" step="0.05" value="0.2" oninput="updateSim()">
+                        <span class="mac-settings-val" id="raw-sharpness">20%</span>
+                        <span class="mac-settings-norm-val" id="norm-sharpness">Norm: 20%</span>
+                    </div>
+                    <div class="mac-settings-row">
+                        <span class="mac-settings-label" data-i18n="mac-composition-lbl">Composition</span>
+                        <input type="range" class="mac-slider" id="val-composition" min="0" max="1" step="0.05" value="0.35" oninput="updateSim()">
+                        <span class="mac-settings-val" id="raw-composition">35%</span>
+                        <span class="mac-settings-norm-val" id="norm-composition">Norm: 35%</span>
+                    </div>
+                    <div class="mac-settings-row">
+                        <span class="mac-settings-label" data-i18n="mac-face-lbl">Face Quality</span>
+                        <input type="range" class="mac-slider" id="val-face" min="0" max="1" step="0.05" value="0.3" oninput="updateSim()">
+                        <span class="mac-settings-val" id="raw-face">30%</span>
+                        <span class="mac-settings-norm-val" id="norm-face">Norm: 30%</span>
+                    </div>
+                    <div class="mac-settings-row">
+                        <span class="mac-settings-label" data-i18n="mac-ear-lbl">Eye Aspect (EAR)</span>
+                        <input type="range" class="mac-slider" id="val-ear" min="0" max="1" step="0.05" value="0.15" oninput="updateSim()">
+                        <span class="mac-settings-val" id="raw-ear">15%</span>
+                        <span class="mac-settings-norm-val" id="norm-ear">Norm: 15%</span>
+                    </div>
+                </div>
+                
+                <div class="mac-settings-footer">
+                    <span class="mac-total-sum" id="sim-total-sum">Total: 100%</span>
+                    <div id="sim-warning" class="mac-warning-msg" style="display: none;">
+                        <span>⚠️</span>
+                        <span data-i18n="mac-warning-text">Will be normalized to 100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Supported Formats Section -->
     <section id="formats" class="formats">
         <div class="section-header">
@@ -221,6 +316,14 @@
             
             <div class="bypass-grid">
                 <div class="bypass-info">
+                    <div class="safe-banner">
+                        <div class="safe-icon">🛡️</div>
+                        <div class="safe-text">
+                            <h4 data-i18n="scan-verified-title">Security Scan Verified</h4>
+                            <p data-i18n="scan-verified-desc">To ensure trust and download reliability, Culler.ai has been scanned and verified clean. View the <a href="https://opentip.kaspersky.com/DB321B55BD6259436960039C39BDD92567DAC782DFCBBF056AD66361E7F4CCC0/results?tab=upload" target="_blank">Kaspersky OpenTip Scan Report</a>.</p>
+                        </div>
+                    </div>
+
                     <div class="warning-banner">
                         <div class="warning-icon">⚠️</div>
                         <div class="warning-text">
@@ -377,6 +480,28 @@
                 "diagram-step4": "4. Launch Successful",
                 "diagram-box4": "Culler.ai Running Unlocked",
                 
+                "nav-rating-settings": "Rating Customization",
+                "rating-settings-label": "Rating Tuning",
+                "rating-settings-title": "Customizing Quality Weights",
+                "rating-settings-desc": "Tailor Culler.ai's on-device scoring engine to match your personal selection standards and photography style.",
+                "rating-intro": "Culler.ai features a flexible <strong>Weighted Rating Mode</strong> that evaluates every photo across four quality metrics, merging them into a composite quality score (0.0 to 1.0) before applying star ratings.",
+                "metric-sharpness": "<strong>Sharpness (20% default):</strong> Uses hardware-accelerated Laplacian variance to evaluate focus. Critical for action or sports shoots.",
+                "metric-composition": "<strong>Composition & Aesthetics (35% default):</strong> Vision model scores framing, contrast, lighting, and general visual appeal. Ideal for landscapes and scenery.",
+                "metric-face": "<strong>Face Quality (30% default):</strong> Evaluates face posture, visibility, and details. Essential for portraits and headshots.",
+                "metric-ear": "<strong>Eye Aspect Ratio / EAR (15% default):</strong> Detects closed eyes or blinks to lower the score of ruined candid portraits.",
+                "normalization-info": "<strong>Proportional Normalization:</strong> Your slider settings are <em>raw weights</em>. If their sum is not 100%, the engine automatically normalizes them proportionally so they sum to 100% internally. Use the interactive panel to experiment with how weights normalize!",
+                "mac-panel-title": "Processing Settings",
+                "mac-panel-reset": "Reset Defaults",
+                "mac-panel-mode": "Rating Mode",
+                "mac-panel-classic": "Classic Mode",
+                "mac-panel-weighted": "Weighted Mode",
+                "mac-sharpness-lbl": "Sharpness",
+                "mac-composition-lbl": "Composition",
+                "mac-face-lbl": "Face Quality",
+                "mac-ear-lbl": "Eye Aspect (EAR)",
+                "mac-warning-text": "Will be normalized to 100%",
+                "scan-verified-title": "Security Scan Verified",
+                "scan-verified-desc": "To ensure trust and download reliability, Culler.ai has been scanned and verified clean. View the <a href=\"https://opentip.kaspersky.com/DB321B55BD6259436960039C39BDD92567DAC782DFCBBF056AD66361E7F4CCC0/results?tab=upload\" target=\"_blank\">Kaspersky OpenTip Scan Report</a>.",
                 "footer-problems": "Problems",
                 "footer-approach": "Approach",
                 "footer-formats": "Supported Files",
@@ -459,6 +584,28 @@
                 "diagram-step4": "4. Uruchomienie Udane",
                 "diagram-box4": "Culler.ai działa odblokowany",
                 
+                "nav-rating-settings": "Dostosowanie Ocen",
+                "rating-settings-label": "Tuning Oceniania",
+                "rating-settings-title": "Dostosowanie Wag Jakości",
+                "rating-settings-desc": "Dostosuj lokalny silnik oceniania Culler.ai do własnych standardów selekcji i stylu fotograficznego.",
+                "rating-intro": "Culler.ai oferuje elastyczny <strong>Tryb oceny ważonej</strong>, który ocenia każde zdjęcie pod kątem czterech metryk jakości, łącząc je w złożony wskaźnik jakości (0.0 do 1.0) przed przypisaniem gwiazdek.",
+                "metric-sharpness": "<strong>Ostrość (domyślnie 20%):</strong> Wykorzystuje przyspieszaną sprzętowo wariancję Laplasjana do oceny ostrości. Kluczowe w przypadku ujęć dynamicznych i sportowych.",
+                "metric-composition": "<strong>Kompozycja i Estetyka (domyślnie 35%):</strong> Model Vision ocenia kadrowanie, kontrast, oświetlenie i ogólną atrakcyjność wizualną. Idealne dla pejzaży i krajobrazów.",
+                "metric-face": "<strong>Jakość Twarzy (domyślnie 30%):</strong> Ocenia ułożenie twarzy, widoczność i szczegóły. Niezbędne w portretach i zdjęciach legitymacyjnych/biznesowych.",
+                "metric-ear": "<strong>Wskaźnik Otwarcia Oczu / EAR (domyślnie 15%):</strong> Wykrywa zamknięte oczy lub mrugnięcia, aby obniżyć ocenę nieudanych portretów.",
+                "normalization-info": "<strong>Proporcjonalna Normalizacja:</strong> Ustawienia suwaków to <em>wagi surowe</em>. Jeśli ich suma nie wynosi 100%, silnik automatycznie znormalizuje je proporcjonalnie, aby wewnętrznie sumowały się do 100%. Użyj interaktywnego panelu, aby zobaczyć działanie normalizacji w praktyce!",
+                "mac-panel-title": "Ustawienia Przetwarzania",
+                "mac-panel-reset": "Resetuj do Domyślnych",
+                "mac-panel-mode": "Tryb Oceniania",
+                "mac-panel-classic": "Tryb Klasyczny",
+                "mac-panel-weighted": "Tryb Ważony",
+                "mac-sharpness-lbl": "Ostrość",
+                "mac-composition-lbl": "Kompozycja",
+                "mac-face-lbl": "Jakość Twarzy",
+                "mac-ear-lbl": "Otwarcie Oczu (EAR)",
+                "mac-warning-text": "Zostanie znormalizowane do 100%",
+                "scan-verified-title": "Weryfikacja Skanowania Bezpieczeństwa",
+                "scan-verified-desc": "Aby zapewnić zaufanie i niezawodność pobierania, Culler.ai został przetestowany i zweryfikowany jako bezpieczny. Zobacz <a href=\"https://opentip.kaspersky.com/DB321B55BD6259436960039C39BDD92567DAC782DFCBBF056AD66361E7F4CCC0/results?tab=upload\" target=\"_blank\">Raport Weryfikacyjny Kaspersky OpenTip</a>.",
                 "footer-problems": "Problemy",
                 "footer-approach": "Podejście",
                 "footer-formats": "Obsługiwane Pliki",
@@ -502,11 +649,101 @@
             });
         }
 
+        // Weight Simulator Logic
+        let simMode = 'weighted';
+        
+        function setSimMode(mode) {
+            simMode = mode;
+            const slidersGroup = document.getElementById('sim-sliders-group');
+            const resetBtn = document.querySelector('.mac-settings-btn-reset');
+            
+            document.getElementById('mode-classic').classList.toggle('active', mode === 'classic');
+            document.getElementById('mode-weighted').classList.toggle('active', mode === 'weighted');
+            
+            if (mode === 'classic') {
+                slidersGroup.classList.add('disabled');
+                resetBtn.disabled = true;
+                
+                // Disable inputs
+                document.querySelectorAll('.mac-slider').forEach(input => input.disabled = true);
+            } else {
+                slidersGroup.classList.remove('disabled');
+                resetBtn.disabled = false;
+                
+                // Enable inputs
+                document.querySelectorAll('.mac-slider').forEach(input => input.disabled = false);
+            }
+            updateSim();
+        }
+        
+        function updateSim() {
+            if (simMode === 'classic') {
+                document.getElementById('sim-total-sum').innerText = 'N/A (Classic thresholds apply)';
+                document.getElementById('sim-warning').style.display = 'none';
+                document.getElementById('norm-sharpness').innerText = '';
+                document.getElementById('norm-composition').innerText = '';
+                document.getElementById('norm-face').innerText = '';
+                document.getElementById('norm-ear').innerText = '';
+                return;
+            }
+            
+            const sharpness = parseFloat(document.getElementById('val-sharpness').value);
+            const composition = parseFloat(document.getElementById('val-composition').value);
+            const face = parseFloat(document.getElementById('val-face').value);
+            const ear = parseFloat(document.getElementById('val-ear').value);
+            
+            const sum = sharpness + composition + face + ear;
+            
+            document.getElementById('raw-sharpness').innerText = Math.round(sharpness * 100) + '%';
+            document.getElementById('raw-composition').innerText = Math.round(composition * 100) + '%';
+            document.getElementById('raw-face').innerText = Math.round(face * 100) + '%';
+            document.getElementById('raw-ear').innerText = Math.round(ear * 100) + '%';
+            
+            document.getElementById('sim-total-sum').innerText = 'Total: ' + Math.round(sum * 100) + '%';
+            
+            const warningEl = document.getElementById('sim-warning');
+            const totalSumEl = document.getElementById('sim-total-sum');
+            
+            if (Math.abs(sum - 1.0) < 0.01) {
+                warningEl.style.display = 'none';
+                totalSumEl.style.color = 'var(--text-secondary)';
+            } else {
+                warningEl.style.display = 'flex';
+                totalSumEl.style.color = '#fbbf24';
+            }
+            
+            let norm_sharpness = 0.20;
+            let norm_composition = 0.35;
+            let norm_face = 0.30;
+            let norm_ear = 0.15;
+            
+            if (sum > 0.0001) {
+                norm_sharpness = sharpness / sum;
+                norm_composition = composition / sum;
+                norm_face = face / sum;
+                norm_ear = ear / sum;
+            }
+            
+            document.getElementById('norm-sharpness').innerText = 'Norm: ' + Math.round(norm_sharpness * 100) + '%';
+            document.getElementById('norm-composition').innerText = 'Norm: ' + Math.round(norm_composition * 100) + '%';
+            document.getElementById('norm-face').innerText = 'Norm: ' + Math.round(norm_face * 100) + '%';
+            document.getElementById('norm-ear').innerText = 'Norm: ' + Math.round(norm_ear * 100) + '%';
+        }
+        
+        function resetSimulator() {
+            document.getElementById('val-sharpness').value = 0.2;
+            document.getElementById('val-composition').value = 0.35;
+            document.getElementById('val-face').value = 0.3;
+            document.getElementById('val-ear').value = 0.15;
+            updateSim();
+        }
+
         // Initialize from localStorage or browser default
         window.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('culler-preferred-lang') || 
                               (navigator.language.startsWith('pl') ? 'pl' : 'en');
             setLanguage(savedLang);
+            updateSim();
         });
         
         // Simple active nav highlighting

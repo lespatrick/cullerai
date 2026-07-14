@@ -17,6 +17,9 @@ Culler.ai is a native macOS application designed for photographers to automate p
 
 ### macOS Gatekeeper Security Notice
 
+> [!NOTE]
+> **Security Scan Verified**: To ensure download reliability and peace of mind, the Culler.ai release DMG has been scanned and verified clean. View the official [Kaspersky OpenTip Scan Report](https://opentip.kaspersky.com/DB321B55BD6259436960039C39BDD92567DAC782DFCBBF056AD66361E7F4CCC0/results?tab=upload).
+
 Since this is an early alpha release distributed directly, macOS may show a warning when opening the app for the first time. You can register a system exemption by choosing one of these methods:
 
 - **Option 1 (Recommended)**: Right-click (or Control-click) **Culler.ai.app** in Finder, select **Open**, and click **Open** on the confirmation prompt.
