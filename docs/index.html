@@ -26,11 +26,15 @@
                 Culler.ai
             </a>
             <ul class="nav-menu">
-                <li><a href="#problems" class="nav-link">Problems Solved</a></li>
-                <li><a href="#approach" class="nav-link">Technical Approach</a></li>
-                <li><a href="#formats" class="nav-link">Supported Files</a></li>
-                <li><a href="#security" class="nav-link">Alpha Setup</a></li>
+                <li><a href="#problems" class="nav-link" data-i18n="nav-problems">Problems Solved</a></li>
+                <li><a href="#approach" class="nav-link" data-i18n="nav-approach">Technical Approach</a></li>
+                <li><a href="#formats" class="nav-link" data-i18n="nav-formats">Supported Files</a></li>
+                <li><a href="#security" class="nav-link" data-i18n="nav-security">Alpha Setup</a></li>
             </ul>
+            <div class="lang-selector">
+                <button onclick="setLanguage('en')" class="lang-btn active" id="lang-en">🇬🇧 EN</button>
+                <button onclick="setLanguage('pl')" class="lang-btn" id="lang-pl">🇵🇱 PL</button>
+            </div>
             <a href="https://github.com/lespatrick/cullerai" target="_blank" class="btn-github">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
@@ -44,14 +48,14 @@
     <section class="hero" id="hero">
         <div class="hero-grid">
             <div class="hero-content">
-                <span class="hero-badge">Alpha v0.1.0 Release</span>
-                <h1 class="hero-title">Automate your <span>photo culling</span> on macOS.</h1>
-                <p class="hero-desc">
+                <span class="hero-badge" data-i18n="hero-badge">Alpha v0.1.0 Release</span>
+                <h1 class="hero-title" data-i18n="hero-title">Automate your <span>photo culling</span> on macOS.</h1>
+                <p class="hero-desc" data-i18n="hero-desc">
                     Stop spending hours manually sorting and grading thousands of photos. Culler.ai is a privacy-first macOS app that clusters duplicates, detects defects, and rates your shots instantly—directly on your device.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://github.com/lespatrick/cullerai/raw/refs/heads/main/Culler.ai.dmg" class="btn-primary">Download Alpha</a>
-                    <a href="#approach" class="btn-secondary">How It Works</a>
+                    <a href="https://github.com/lespatrick/cullerai/raw/refs/heads/main/Culler.ai.dmg" class="btn-primary" data-i18n="btn-download">Download Alpha</a>
+                    <a href="#approach" class="btn-secondary" data-i18n="btn-how-it-works">How It Works</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -65,30 +69,30 @@
     <!-- Problems Solved Section -->
     <section id="problems" class="problems">
         <div class="section-header">
-            <span class="section-label">The Challenge</span>
-            <h2 class="section-title">Why Photo Selection Hurts</h2>
-            <p class="section-desc">Culling is the most tedious bottleneck in a professional photographer's workflow.</p>
+            <span class="section-label" data-i18n="problems-label">The Challenge</span>
+            <h2 class="section-title" data-i18n="problems-title">Why Photo Selection Hurts</h2>
+            <p class="section-desc" data-i18n="problems-desc">Culling is the most tedious bottleneck in a professional photographer's workflow.</p>
         </div>
         <div class="problems-grid">
             <div class="problem-card">
                 <div class="problem-icon">⏱️</div>
-                <h3>Hours of Manual Sorting</h3>
-                <p>Wedding and event shoots result in thousands of RAW images. Sifting through every photo to select keepers is an exhausting chore.</p>
+                <h3 data-i18n="prob1-title">Hours of Manual Sorting</h3>
+                <p data-i18n="prob1-desc">Wedding and event shoots result in thousands of RAW images. Sifting through every photo to select keepers is an exhausting chore.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">🧠</div>
-                <h3>Decision Fatigue</h3>
-                <p>Constantly comparing almost-identical photos to select the single best frame drains your energy, slowing down the editing stage.</p>
+                <h3 data-i18n="prob2-title">Decision Fatigue</h3>
+                <p data-i18n="prob2-desc">Constantly comparing almost-identical photos to select the single best frame drains your energy, slowing down the editing stage.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">👁️</div>
-                <h3>Missed Flaws</h3>
-                <p>It's easy to miss micro-imperfections like closed eyes, slight motion blur, or sub-optimal facial expressions until the final export.</p>
+                <h3 data-i18n="prob3-title">Missed Flaws</h3>
+                <p data-i18n="prob3-desc">It's easy to miss micro-imperfections like closed eyes, slight motion blur, or sub-optimal facial expressions until the final export.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">⚙️</div>
-                <h3>Workflow Disconnect</h3>
-                <p>Importing, flagging, and moving files across different editing suites like Capture One and Lightroom causes unnecessary friction.</p>
+                <h3 data-i18n="prob4-title">Workflow Disconnect</h3>
+                <p data-i18n="prob4-desc">Importing, flagging, and moving files across different editing suites like Capture One and Lightroom causes unnecessary friction.</p>
             </div>
         </div>
     </section>
@@ -96,9 +100,9 @@
     <!-- Technical Approach Section -->
     <section id="approach" class="approach">
         <div class="section-header">
-            <span class="section-label">Our Approach</span>
-            <h2 class="section-title">Privacy-First Intelligent Culling</h2>
-            <p class="section-desc">We leverage Apple Silicon and native frameworks to analyze your photo library locally with zero cloud dependencies.</p>
+            <span class="section-label" data-i18n="approach-label">Our Approach</span>
+            <h2 class="section-title" data-i18n="approach-title">Privacy-First Intelligent Culling</h2>
+            <p class="section-desc" data-i18n="approach-desc">We leverage Apple Silicon and native frameworks to analyze your photo library locally with zero cloud dependencies.</p>
         </div>
         
         <div class="approach-grid">
@@ -106,55 +110,55 @@
                 <div class="approach-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Near-Duplicate Clustering</h3>
-                        <p>Groups photos into visual "stacks" using cosine similarity on high-dimensional feature print embeddings, keeping your workspace clean and categorized.</p>
+                        <h3 data-i18n="step1-title">Near-Duplicate Clustering</h3>
+                        <p data-i18n="step1-desc">Groups photos into visual "stacks" using cosine similarity on high-dimensional feature print embeddings, keeping your workspace clean and categorized.</p>
                     </div>
                 </div>
                 <div class="approach-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Technical Defect Analysis</h3>
-                        <p>Runs local Laplacian variance edge detection for tack-sharp focus evaluation, alongside blink detection (Eye Aspect Ratio) and aesthetic grading.</p>
+                        <h3 data-i18n="step2-title">Technical Defect Analysis</h3>
+                        <p data-i18n="step2-desc">Runs local Laplacian variance edge detection for tack-sharp focus evaluation, alongside blink detection (Eye Aspect Ratio) and aesthetic grading.</p>
                     </div>
                 </div>
                 <div class="approach-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Automatic 5-Star Rating</h3>
-                        <p>Grades photo quality into a standardized 5-star scale, automatically promoting the highest quality "stack leaders" while downgrading redundant duplicates.</p>
+                        <h3 data-i18n="step3-title">Automatic 5-Star Rating</h3>
+                        <p data-i18n="step3-desc">Grades photo quality into a standardized 5-star scale, automatically promoting the highest quality "stack leaders" while downgrading redundant duplicates.</p>
                     </div>
                 </div>
             </div>
             
             <div class="approach-list">
                 <h3 class="approach-list-title">
-                    Core Technical Stack
-                    <span class="tech-tag">macOS Native</span>
+                    <span data-i18n="tech-stack-title">Core Technical Stack</span>
+                    <span class="tech-tag" data-i18n="tech-stack-tag">macOS Native</span>
                 </h3>
                 <ul class="tech-features">
                     <li class="tech-feature-item">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        <span><strong>Apple Vision Framework:</strong> Extracting feature print embeddings and detecting eye / face landmarks entirely offline.</span>
+                        <span data-i18n="tech1"><strong>Apple Vision Framework:</strong> Extracting feature print embeddings and detecting eye / face landmarks entirely offline.</span>
                     </li>
                     <li class="tech-feature-item">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        <span><strong>Accelerate Framework:</strong> vImage & vDSP DSP vector math library for hardware-accelerated Laplacian calculations.</span>
+                        <span data-i18n="tech2"><strong>Accelerate Framework:</strong> vImage & vDSP DSP vector math library for hardware-accelerated Laplacian calculations.</span>
                     </li>
                     <li class="tech-feature-item">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        <span><strong>Metadata & XMP Sidecars:</strong> Fully compatible with Lightroom and Capture One. Reads/writes standard ratings with no proprietary locks.</span>
+                        <span data-i18n="tech3"><strong>Metadata & XMP Sidecars:</strong> Fully compatible with Lightroom and Capture One. Reads/writes standard ratings with no proprietary locks.</span>
                     </li>
                     <li class="tech-feature-item">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        <span><strong>Capture One Integration:</strong> Direct script triggers and physical selects sorting to speed up active editing sessions.</span>
+                        <span data-i18n="tech4"><strong>Capture One Integration:</strong> Direct script triggers and physical selects sorting to speed up active editing sessions.</span>
                     </li>
                 </ul>
             </div>
@@ -164,15 +168,15 @@
     <!-- Supported Formats Section -->
     <section id="formats" class="formats">
         <div class="section-header">
-            <span class="section-label">Compatibility</span>
-            <h2 class="section-title">Supported File Formats</h2>
-            <p class="section-desc">Culler.ai is built to fit seamlessly into professional workflows, supporting high-fidelity RAW files, standard images, and sidecar metadata.</p>
+            <span class="section-label" data-i18n="formats-label">Compatibility</span>
+            <h2 class="section-title" data-i18n="formats-title">Supported File Formats</h2>
+            <p class="section-desc" data-i18n="formats-desc">Culler.ai is built to fit seamlessly into professional workflows, supporting high-fidelity RAW files, standard images, and sidecar metadata.</p>
         </div>
         <div class="problems-grid">
             <div class="problem-card" style="border-color: rgba(99, 102, 241, 0.15);">
                 <div class="problem-icon" style="background-color: rgba(99, 102, 241, 0.1); color: var(--accent);">📸</div>
-                <h3>RAW Camera Formats</h3>
-                <p>Process native RAW files from major camera systems without pre-conversion:</p>
+                <h3 data-i18n="raw-title">RAW Camera Formats</h3>
+                <p data-i18n="raw-desc">Process native RAW files from major camera systems without pre-conversion:</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
                     <span class="tech-tag">.arw (Sony)</span>
                     <span class="tech-tag">.cr2 (Canon)</span>
@@ -184,8 +188,8 @@
             
             <div class="problem-card" style="border-color: rgba(99, 102, 241, 0.15);">
                 <div class="problem-icon" style="background-color: rgba(99, 102, 241, 0.1); color: var(--accent);">🖼️</div>
-                <h3>Standard Image Formats</h3>
-                <p>Fast, high-performance loading and processing of compressed assets:</p>
+                <h3 data-i18n="std-title">Standard Image Formats</h3>
+                <p data-i18n="std-desc">Fast, high-performance loading and processing of compressed assets:</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
                     <span class="tech-tag">.jpg / .jpeg</span>
                     <span class="tech-tag">.png</span>
@@ -196,12 +200,12 @@
 
             <div class="problem-card" style="border-color: rgba(99, 102, 241, 0.15);">
                 <div class="problem-icon" style="background-color: rgba(99, 102, 241, 0.1); color: var(--accent);">📄</div>
-                <h3>Sidecar Metadata</h3>
-                <p>Seamless rating synchronizations to keep editing suites in lockstep:</p>
+                <h3 data-i18n="sidecar-title">Sidecar Metadata</h3>
+                <p data-i18n="sidecar-desc">Seamless rating synchronizations to keep editing suites in lockstep:</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
                     <span class="tech-tag">.xmp</span>
                 </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Automatically reads existing star ratings and exports finalized grades back directly to the sidecars.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;" data-i18n="sidecar-note">Automatically reads existing star ratings and exports finalized grades back directly to the sidecars.</p>
             </div>
         </div>
     </section>
@@ -210,9 +214,9 @@
     <section id="security" class="security">
         <div class="bypass">
             <div class="section-header" style="margin-bottom: 2rem; text-align: left; max-width: 100%;">
-                <span class="section-label" style="color: #f59e0b;">Alpha & Freemium Builds</span>
-                <h2 class="section-title">Running Culler.ai Locally</h2>
-                <p class="section-desc">Because this is an early alpha release distributed directly through GitHub, the application is ad-hoc signed and has not yet undergone Apple's official App Store notarization check.</p>
+                <span class="section-label" style="color: #f59e0b;" data-i18n="security-label">Alpha & Freemium Builds</span>
+                <h2 class="section-title" data-i18n="security-title">Running Culler.ai Locally</h2>
+                <p class="section-desc" data-i18n="security-desc">Because this is an early alpha release distributed directly through GitHub, the application is ad-hoc signed and has not yet undergone Apple's official App Store notarization check.</p>
             </div>
             
             <div class="bypass-grid">
@@ -220,38 +224,38 @@
                     <div class="warning-banner">
                         <div class="warning-icon">⚠️</div>
                         <div class="warning-text">
-                            <h4>macOS Gatekeeper Warning</h4>
-                            <p>When you double-click the app for the first time, macOS may say "App is damaged and can't be opened" or "Developer cannot be verified" because of ad-hoc signature parameters.</p>
+                            <h4 data-i18n="warning-title">macOS Gatekeeper Warning</h4>
+                            <p data-i18n="warning-desc">When you double-click the app for the first time, macOS may say "App is damaged and can't be opened" or "Developer cannot be verified" because of ad-hoc signature parameters.</p>
                         </div>
                     </div>
                     
-                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;" data-i18n="quarantine-notice">
                         You can easily skip this security quarantine block using one of the three following methods to register a system-wide developer exemption:
                     </p>
                     
                     <div class="bypass-steps">
                         <div class="bypass-option">
-                            <div class="bypass-option-title">
+                            <div class="bypass-option-title" data-i18n="opt1-title">
                                 🖱️ Option 1: Right-Click Bypass (Recommended)
                             </div>
-                            <p>Control-click (or right-click) the <strong>Culler.ai.app</strong> bundle in Finder, select <strong>Open</strong>, and click the confirmation dialog's <strong>Open</strong> button. macOS saves this choice automatically.</p>
+                            <p data-i18n="opt1-desc">Control-click (or right-click) the <strong>Culler.ai.app</strong> bundle in Finder, select <strong>Open</strong>, and click the confirmation dialog's <strong>Open</strong> button. macOS saves this choice automatically.</p>
                         </div>
                         
                         <div class="bypass-option">
-                            <div class="bypass-option-title">
+                            <div class="bypass-option-title" data-i18n="opt2-title">
                                 ⚙️ Option 2: System Settings Option
                             </div>
-                            <p>Open the app once. When the popup blocks you, go to macOS <strong>System Settings > Privacy & Security</strong>, scroll down to the Security category, and click <strong>Open Anyway</strong>.</p>
+                            <p data-i18n="opt2-desc">Open the app once. When the popup blocks you, go to macOS <strong>System Settings > Privacy & Security</strong>, scroll down to the Security category, and click <strong>Open Anyway</strong>.</p>
                         </div>
                         
                         <div class="bypass-option">
-                            <div class="bypass-option-title">
+                            <div class="bypass-option-title" data-i18n="opt3-title">
                                 💻 Option 3: Command-Line Bypassing
                             </div>
-                            <p>If you prefer using the terminal, clear the system quarantine metadata flag directly (assuming the app is in your `/Applications` directory):</p>
+                            <p data-i18n="opt3-desc">If you prefer using the terminal, clear the system quarantine metadata flag directly (assuming the app is in your `/Applications` directory):</p>
                             <div class="code-block">
                                 <span id="cmd-text">xattr -r -d com.apple.quarantine /Applications/Culler.ai.app</span>
-                                <button class="copy-btn" onclick="copyCommand()">Copy</button>
+                                <button class="copy-btn" onclick="copyCommand()" data-i18n="copy-btn">Copy</button>
                             </div>
                         </div>
                     </div>
@@ -259,23 +263,23 @@
                 
                 <div class="bypass-diagram">
                     <div class="diagram-item">
-                        <span class="diagram-header">1. App Downloaded</span>
-                        <div class="diagram-box">Culler.ai.app (Ad-hoc Signed)</div>
+                        <span class="diagram-header" data-i18n="diagram-step1">1. App Downloaded</span>
+                        <div class="diagram-box" data-i18n="diagram-box1">Culler.ai.app (Ad-hoc Signed)</div>
                     </div>
                     <div class="diagram-arrow">↓</div>
                     <div class="diagram-item">
-                        <span class="diagram-header">2. macOS Gatekeeper Guard</span>
-                        <div class="diagram-box warning">Blocks app with Quarantine Flag</div>
+                        <span class="diagram-header" data-i18n="diagram-step2">2. macOS Gatekeeper Guard</span>
+                        <div class="diagram-box warning" data-i18n="diagram-box2">Blocks app with Quarantine Flag</div>
                     </div>
                     <div class="diagram-arrow">↓</div>
                     <div class="diagram-item">
-                        <span class="diagram-header">3. Exemption Triggered</span>
-                        <div class="diagram-box">Control + Click "Open" OR quarantine removal</div>
+                        <span class="diagram-header" data-i18n="diagram-step3">3. Exemption Triggered</span>
+                        <div class="diagram-box" data-i18n="diagram-box3">Control + Click "Open" OR quarantine removal</div>
                     </div>
                     <div class="diagram-arrow">↓</div>
                     <div class="diagram-item">
-                        <span class="diagram-header">4. Launch Successful</span>
-                        <div class="diagram-box active">Culler.ai Running Unlocked</div>
+                        <span class="diagram-header" data-i18n="diagram-step4">4. Launch Successful</span>
+                        <div class="diagram-box active" data-i18n="diagram-box4">Culler.ai Running Unlocked</div>
                     </div>
                 </div>
             </div>
@@ -286,27 +290,224 @@
     <footer>
         <div class="footer-container">
             <ul class="footer-links">
-                <li><a href="#problems" class="footer-link">Problems</a></li>
-                <li><a href="#approach" class="footer-link">Approach</a></li>
-                <li><a href="#formats" class="footer-link">Supported Files</a></li>
-                <li><a href="#security" class="footer-link">Alpha Guide</a></li>
-                <li><a href="https://github.com/lespatrick/cullerai" class="footer-link">GitHub Repository</a></li>
+                <li><a href="#problems" class="footer-link" data-i18n="footer-problems">Problems</a></li>
+                <li><a href="#approach" class="footer-link" data-i18n="footer-approach">Approach</a></li>
+                <li><a href="#formats" class="footer-link" data-i18n="footer-formats">Supported Files</a></li>
+                <li><a href="#security" class="footer-link" data-i18n="footer-security">Alpha Guide</a></li>
+                <li><a href="https://github.com/lespatrick/cullerai" class="footer-link" data-i18n="footer-repo">GitHub Repository</a></li>
             </ul>
-            <p class="copyright">&copy; 2026 Culler.ai. All rights reserved.</p>
+            <p class="copyright" data-i18n="footer-copyright">&copy; 2026 Culler.ai. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        const translations = {
+            en: {
+                "nav-problems": "Problems Solved",
+                "nav-approach": "Technical Approach",
+                "nav-formats": "Supported Files",
+                "nav-security": "Alpha Setup",
+                
+                "hero-badge": "Alpha v0.1.0 Release",
+                "hero-title": "Automate your <span>photo culling</span> on macOS.",
+                "hero-desc": "Stop spending hours manually sorting and grading thousands of photos. Culler.ai is a privacy-first macOS app that clusters duplicates, detects defects, and rates your shots instantly—directly on your device.",
+                "btn-download": "Download Alpha",
+                "btn-how-it-works": "How It Works",
+                
+                "problems-label": "The Challenge",
+                "problems-title": "Why Photo Selection Hurts",
+                "problems-desc": "Culling is the most tedious bottleneck in a professional photographer's workflow.",
+                "prob1-title": "Hours of Manual Sorting",
+                "prob1-desc": "Wedding and event shoots result in thousands of RAW images. Sifting through every photo to select keepers is an exhausting chore.",
+                "prob2-title": "Decision Fatigue",
+                "prob2-desc": "Constantly comparing almost-identical photos to select the single best frame drains your energy, slowing down the editing stage.",
+                "prob3-title": "Missed Flaws",
+                "prob3-desc": "It's easy to miss micro-imperfections like closed eyes, slight motion blur, or sub-optimal facial expressions until the final export.",
+                "prob4-title": "Workflow Disconnect",
+                "prob4-desc": "Importing, flagging, and moving files across different editing suites like Capture One and Lightroom causes unnecessary friction.",
+                
+                "approach-label": "Our Approach",
+                "approach-title": "Privacy-First Intelligent Culling",
+                "approach-desc": "We leverage Apple Silicon and native frameworks to analyze your photo library locally with zero cloud dependencies.",
+                "step1-title": "Near-Duplicate Clustering",
+                "step1-desc": "Groups photos into visual \"stacks\" using cosine similarity on high-dimensional feature print embeddings, keeping your workspace clean and categorized.",
+                "step2-title": "Technical Defect Analysis",
+                "step2-desc": "Runs local Laplacian variance edge detection for tack-sharp focus evaluation, alongside blink detection (Eye Aspect Ratio) and aesthetic grading.",
+                "step3-title": "Automatic 5-Star Rating",
+                "step3-desc": "Grades photo quality into a standardized 5-star scale, automatically promoting the highest quality \"stack leaders\" while downgrading redundant duplicates.",
+                
+                "tech-stack-title": "Core Technical Stack",
+                "tech-stack-tag": "macOS Native",
+                "tech1": "<strong>Apple Vision Framework:</strong> Extracting feature print embeddings and detecting eye / face landmarks entirely offline.",
+                "tech2": "<strong>Accelerate Framework:</strong> vImage & vDSP DSP vector math library for hardware-accelerated Laplacian calculations.",
+                "tech3": "<strong>Metadata & XMP Sidecars:</strong> Fully compatible with Lightroom and Capture One. Reads/writes standard ratings with no proprietary locks.",
+                "tech4": "<strong>Capture One Integration:</strong> Direct script triggers and physical selects sorting to speed up active editing sessions.",
+                
+                "formats-label": "Compatibility",
+                "formats-title": "Supported File Formats",
+                "formats-desc": "Culler.ai is built to fit seamlessly into professional workflows, supporting high-fidelity RAW files, standard images, and sidecar metadata.",
+                "raw-title": "RAW Camera Formats",
+                "raw-desc": "Process native RAW files from major camera systems without pre-conversion:",
+                "std-title": "Standard Image Formats",
+                "std-desc": "Fast, high-performance loading and processing of compressed assets:",
+                "sidecar-title": "Sidecar Metadata",
+                "sidecar-desc": "Seamless rating synchronizations to keep editing suites in lockstep:",
+                "sidecar-note": "Automatically reads existing star ratings and exports finalized grades back directly to the sidecars.",
+                
+                "security-label": "Alpha & Freemium Builds",
+                "security-title": "Running Culler.ai Locally",
+                "security-desc": "Because this is an early alpha release distributed directly through GitHub, the application is ad-hoc signed and has not yet undergone Apple's official App Store notarization check.",
+                "warning-title": "macOS Gatekeeper Warning",
+                "warning-desc": "When you double-click the app for the first time, macOS may say \"App is damaged and can't be opened\" or \"Developer cannot be verified\" because of ad-hoc signature parameters.",
+                "quarantine-notice": "You can easily skip this security quarantine block using one of the three following methods to register a system-wide developer exemption:",
+                "opt1-title": "🖱️ Option 1: Right-Click Bypass (Recommended)",
+                "opt1-desc": "Control-click (or right-click) the <strong>Culler.ai.app</strong> bundle in Finder, select <strong>Open</strong>, and click the confirmation dialog's <strong>Open</strong> button. macOS saves this choice automatically.",
+                "opt2-title": "⚙️ Option 2: System Settings Option",
+                "opt2-desc": "Open the app once. When the popup blocks you, go to macOS <strong>System Settings > Privacy & Security</strong>, scroll down to the Security category, and click <strong>Open Anyway</strong>.",
+                "opt3-title": "💻 Option 3: Command-Line Bypassing",
+                "opt3-desc": "If you prefer using the terminal, clear the system quarantine metadata flag directly (assuming the app is in your `/Applications` directory):",
+                "copy-btn": "Copy",
+                
+                "diagram-step1": "1. App Downloaded",
+                "diagram-box1": "Culler.ai.app (Ad-hoc Signed)",
+                "diagram-step2": "2. macOS Gatekeeper Guard",
+                "diagram-box2": "Blocks app with Quarantine Flag",
+                "diagram-step3": "3. Exemption Triggered",
+                "diagram-box3": "Control + Click \"Open\" OR quarantine removal",
+                "diagram-step4": "4. Launch Successful",
+                "diagram-box4": "Culler.ai Running Unlocked",
+                
+                "footer-problems": "Problems",
+                "footer-approach": "Approach",
+                "footer-formats": "Supported Files",
+                "footer-security": "Alpha Guide",
+                "footer-repo": "GitHub Repository",
+                "footer-copyright": "&copy; 2026 Culler.ai. All rights reserved."
+            },
+            pl: {
+                "nav-problems": "Rozwiązywane Problemy",
+                "nav-approach": "Podejście Techniczne",
+                "nav-formats": "Obsługiwane Pliki",
+                "nav-security": "Instalacja Alpha",
+                
+                "hero-badge": "Wydanie Alpha v0.1.0",
+                "hero-title": "Zautomatyzuj <span>selekcję zdjęć</span> na macOS.",
+                "hero-desc": "Przestań spędzać godziny na ręcznym sortowaniu i ocenianiu tysięcy zdjęć. Culler.ai to dbająca o prywatność aplikacja na macOS, która grupuje duplikaty, wykrywa wady i błyskawicznie ocenia Twoje ujęcia — bezpośrednio na Twoim urządzeniu.",
+                "btn-download": "Pobierz Alpha",
+                "btn-how-it-works": "Jak to działa",
+                
+                "problems-label": "Wyzwanie",
+                "problems-title": "Dlaczego selekcja zdjęć boli",
+                "problems-desc": "Selekcja (culling) to najbardziej nużące wąskie gardło w pracy profesjonalnego fotografa.",
+                "prob1-title": "Godziny ręcznego sortowania",
+                "prob1-desc": "Sesje ślubne i eventowe kończą się tysiącami zdjęć RAW. Przedzieranie się przez każde zdjęcie w celu wybrania najlepszych to wyczerpujące zajęcie.",
+                "prob2-title": "Zmęczenie decyzyjne",
+                "prob2-desc": "Ciągłe porównywanie niemal identycznych zdjęć w celu wybrania pojedynczego najlepszego kadru wyczerpuje energię, spowalniając etap edycji.",
+                "prob3-title": "Przeoczone wady",
+                "prob3-desc": "Łatwo przeoczyć drobne niedoskonałości, takie jak zamknięte oczy, lekkie rozmycie ruchu lub nieoptymalny wyraz twarzy aż do ostatecznego eksportu.",
+                "prob4-title": "Brak spójności workflow",
+                "prob4-desc": "Importowanie, oflagowywanie i przenoszenie plików między różnymi programami do edycji, takimi jak Capture One i Lightroom, powoduje niepotrzebne tarcie.",
+                
+                "approach-label": "Nasze Podejście",
+                "approach-title": "Inteligentna selekcja z poszanowaniem prywatności",
+                "approach-desc": "Wykorzystujemy Apple Silicon i natywne frameworki do lokalnej analizy Twojej biblioteki zdjęć, bez jakichkolwiek zależności od chmury.",
+                "step1-title": "Grupowanie podobnych ujęć",
+                "step1-desc": "Grupuje zdjęcia w wizualne „stosy” przy użyciu podobieństwa cosinusowego wysokowymiarowych wektorów cech obrazu, utrzymując porządek w Twojej przestrzeni roboczej.",
+                "step2-title": "Analiza wad technicznych",
+                "step2-desc": "Wykonuje lokalną analizę ostrości metodą wariancji Laplasjana, a także wykrywanie mrugnięć (Eye Aspect Ratio) i ocenę estetyki.",
+                "step3-title": "Automatyczna ocena 5-gwiazdkowa",
+                "step3-desc": "Klasyfikuje jakość zdjęć w standaryzowanej skali 5-gwiazdkowej, automatycznie promując najwyższej jakości „liderów stosów” i degradując zbędne duplikaty.",
+                
+                "tech-stack-title": "Główny stos techniczny",
+                "tech-stack-tag": "Natywny dla macOS",
+                "tech1": "<strong>Apple Vision Framework:</strong> Ekstrakcja wektorów cech obrazu oraz wykrywanie punktów kluczowych twarzy i oczu całkowicie offline.",
+                "tech2": "<strong>Accelerate Framework:</strong> Biblioteka matematyki wektorowej vImage i vDSP do sprzętowo przyspieszanych obliczeń Laplasjana.",
+                "tech3": "<strong>Metadane i pliki XMP:</strong> Pełna kompatybilność z Lightroom i Capture One. Odczyt i zapis standardowych ocen bez zamkniętych formatów.",
+                "tech4": "<strong>Integracja z Capture One:</strong> Bezpośrednie wyzwalanie skryptów i fizyczne przenoszenie wybranych zdjęć w celu przyspieszenia sesji edycyjnych.",
+                
+                "formats-label": "Kompatybilność",
+                "formats-title": "Obsługiwane formaty plików",
+                "formats-desc": "Culler.ai został stworzony, aby bezproblemowo pasować do profesjonalnych przepływów pracy, obsługując pliki RAW wysokiej jakości, standardowe obrazy i metadane sidecar.",
+                "raw-title": "Formaty RAW aparatów",
+                "raw-desc": "Przetwarzaj natywne pliki RAW z głównych systemów aparatów bez wstępnej konwersji:",
+                "std-title": "Standardowe formaty obrazu",
+                "std-desc": "Szybkie, wysoce wydajne ładowanie i przetwarzanie skompresowanych zasobów:",
+                "sidecar-title": "Metadane Sidecar",
+                "sidecar-desc": "Bezproblemowa synchronizacja ocen, aby utrzymać programy edycyjne w pełnej zgodności:",
+                "sidecar-note": "Automatycznie odczytuje istniejące oceny gwiazdkowe i eksportuje sfinalizowane oceny bezpośrednio do plików sidecar.",
+                
+                "security-label": "Kompilacje Alpha i Freemium",
+                "security-title": "Uruchamianie Culler.ai lokalnie",
+                "security-desc": "Ponieważ jest to wczesna wersja alpha dystrybuowana bezpośrednio przez GitHub, aplikacja jest podpisana ad-hoc i nie przeszła jeszcze oficjalnej weryfikacji notarialnej Apple App Store.",
+                "warning-title": "Ostrzeżenie macOS Gatekeeper",
+                "warning-desc": "Gdy klikniesz dwukrotnie aplikację po raz pierwszy, system macOS może wyświetlić komunikat „Aplikacja jest uszkodzona i nie można jej otworzyć” lub „Nie można zweryfikować dewelopera” z powodu parametrów podpisu ad-hoc.",
+                "quarantine-notice": "Możesz łatwo pominąć tę blokadę kwarantanny bezpieczeństwa, korzystając z jednej z trzech poniższych metod, aby zarejestrować systemowy wyjątek deweloperski:",
+                "opt1-title": "Opcja 1: Ominięcie prawym przyciskiem myszy (Zalecane)",
+                "opt1-desc": "Kliknij z klawiszem Control (lub prawym przyciskiem myszy) pakiet <strong>Culler.ai.app</strong> w Finderze, wybierz <strong>Otwórz</strong>, a następnie kliknij przycisk <strong>Otwórz</strong> w oknie dialogowym. macOS zapamięta ten wybór.",
+                "opt2-title": "Opcja 2: Opcja w Ustawieniach Systemowych",
+                "opt2-desc": "Otwórz aplikację raz. Gdy wyskakujące okienko Cię zablokuje, przejdź do macOS <strong>Ustawienia Systemowe > Prywatność i Bezpieczeństwo</strong>, przewiń w dół do sekcji Bezpieczeństwo i kliknij **Otwórz mimo to**.",
+                "opt3-title": "Opcja 3: Ominięcie z linii poleceń",
+                "opt3-desc": "Jeśli wolisz korzystać z terminala, wyczyść bezpośrednio flagę kwarantanny systemu (zakładając, że aplikacja znajduje się w katalogu `/Applications`):",
+                "copy-btn": "Kopiuj",
+                
+                "diagram-step1": "1. Pobrano Aplikację",
+                "diagram-box1": "Culler.ai.app (Podpisana Ad-hoc)",
+                "diagram-step2": "2. Ochrona macOS Gatekeeper",
+                "diagram-box2": "Blokuje aplikację flagą kwarantanny",
+                "diagram-step3": "3. Wyjątek Uruchomiony",
+                "diagram-box3": "Control + Kliknięcie „Otwórz” LUB usunięcie kwarantanny",
+                "diagram-step4": "4. Uruchomienie Udane",
+                "diagram-box4": "Culler.ai działa odblokowany",
+                
+                "footer-problems": "Problemy",
+                "footer-approach": "Podejście",
+                "footer-formats": "Obsługiwane Pliki",
+                "footer-security": "Instrukcja Alpha",
+                "footer-repo": "Repozytorium GitHub",
+                "footer-copyright": "&copy; 2026 Culler.ai. Wszelkie prawa zastrzeżone."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active state in selector buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            
+            localStorage.setItem('culler-preferred-lang', lang);
+        }
+
         function copyCommand() {
             const text = document.getElementById("cmd-text").innerText;
             navigator.clipboard.writeText(text).then(() => {
                 const btn = document.querySelector(".copy-btn");
-                btn.innerText = "Copied!";
+                const originalText = translations[currentLang]["copy-btn"];
+                btn.innerText = currentLang === 'pl' ? "Skopiowano!" : "Copied!";
                 setTimeout(() => {
-                    btn.innerText = "Copy";
+                    btn.innerText = originalText;
                 }, 2000);
             });
         }
+
+        // Initialize from localStorage or browser default
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('culler-preferred-lang') || 
+                              (navigator.language.startsWith('pl') ? 'pl' : 'en');
+            setLanguage(savedLang);
+        });
         
         // Simple active nav highlighting
         window.addEventListener('scroll', () => {

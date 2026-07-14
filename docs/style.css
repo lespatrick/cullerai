@@ -741,3 +741,34 @@ footer {
         padding-left: 0;
     }
 }
+
+/* Language Selector */
+.lang-selector {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-body);
+}
+
+.lang-btn:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.lang-btn.active {
+    background-color: var(--bg-tertiary);
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
