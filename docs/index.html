@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culler.ai — Smart, Automated Photo Selection for macOS</title>
+    <meta name="description" content="Stop spending hours culling photos. Culler.ai uses on-device Vision & ML to cluster near-duplicates, analyze quality metrics, and rate your photos automatically.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="url(#logo-grad)" stroke-width="8" />
+                    <rect x="35" y="35" width="30" height="30" rx="6" fill="url(#logo-grad)" />
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#a5b4fc" />
+                            <stop offset="100%" stop-color="#6366f1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                Culler.ai
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#problems" class="nav-link">Problems Solved</a></li>
+                <li><a href="#approach" class="nav-link">Technical Approach</a></li>
+                <li><a href="#security" class="nav-link">Alpha Setup</a></li>
+            </ul>
+            <a href="https://github.com/leszekbarszcz/culler" target="_blank" class="btn-github">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">Alpha v0.1.0 Release</span>
+                <h1 class="hero-title">Automate your <span>photo culling</span> on macOS.</h1>
+                <p class="hero-desc">
+                    Stop spending hours manually sorting and grading thousands of photos. Culler.ai is a privacy-first macOS app that clusters duplicates, detects defects, and rates your shots instantly—directly on your device.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#security" class="btn-primary">Download Alpha</a>
+                    <a href="#approach" class="btn-secondary">How It Works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-container">
+                    <img src="assets/app_mockup.png" alt="Culler.ai Application Mockup showing Grid of photos with automatically applied ratings, Laplacian sharpness scores, face detection details, and a dark mode interface">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Solved Section -->
+    <section id="problems" class="problems">
+        <div class="section-header">
+            <span class="section-label">The Challenge</span>
+            <h2 class="section-title">Why Photo Selection Hurts</h2>
+            <p class="section-desc">Culling is the most tedious bottleneck in a professional photographer's workflow.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-icon">⏱️</div>
+                <h3>Hours of Manual Sorting</h3>
+                <p>Wedding and event shoots result in thousands of RAW images. Sifting through every photo to select keepers is an exhausting chore.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🧠</div>
+                <h3>Decision Fatigue</h3>
+                <p>Constantly comparing almost-identical photos to select the single best frame drains your energy, slowing down the editing stage.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">👁️</div>
+                <h3>Missed Flaws</h3>
+                <p>It's easy to miss micro-imperfections like closed eyes, slight motion blur, or sub-optimal facial expressions until the final export.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⚙️</div>
+                <h3>Workflow Disconnect</h3>
+                <p>Importing, flagging, and moving files across different editing suites like Capture One and Lightroom causes unnecessary friction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Approach Section -->
+    <section id="approach" class="approach">
+        <div class="section-header">
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title">Privacy-First Intelligent Culling</h2>
+            <p class="section-desc">We leverage Apple Silicon and native frameworks to analyze your photo library locally with zero cloud dependencies.</p>
+        </div>
+        
+        <div class="approach-grid">
+            <div class="approach-steps">
+                <div class="approach-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Near-Duplicate Clustering</h3>
+                        <p>Groups photos into visual "stacks" using cosine similarity on high-dimensional feature print embeddings, keeping your workspace clean and categorized.</p>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Technical Defect Analysis</h3>
+                        <p>Runs local Laplacian variance edge detection for tack-sharp focus evaluation, alongside blink detection (Eye Aspect Ratio) and aesthetic grading.</p>
+                    </div>
+                </div>
+                <div class="approach-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Automatic 5-Star Rating</h3>
+                        <p>Grades photo quality into a standardized 5-star scale, automatically promoting the highest quality "stack leaders" while downgrading redundant duplicates.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="approach-list">
+                <h3 class="approach-list-title">
+                    Core Technical Stack
+                    <span class="tech-tag">macOS Native</span>
+                </h3>
+                <ul class="tech-features">
+                    <li class="tech-feature-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span><strong>Apple Vision Framework:</strong> Extracting feature print embeddings and detecting eye / face landmarks entirely offline.</span>
+                    </li>
+                    <li class="tech-feature-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span><strong>Accelerate Framework:</strong> vImage & vDSP DSP vector math library for hardware-accelerated Laplacian calculations.</span>
+                    </li>
+                    <li class="tech-feature-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span><strong>Metadata & XMP Sidecars:</strong> Fully compatible with Lightroom and Capture One. Reads/writes standard ratings with no proprietary locks.</span>
+                    </li>
+                    <li class="tech-feature-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span><strong>Capture One Integration:</strong> Direct script triggers and physical selects sorting to speed up active editing sessions.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Bypass / Gatekeeper Section -->
+    <section id="security" class="security">
+        <div class="bypass">
+            <div class="section-header" style="margin-bottom: 2rem; text-align: left; max-width: 100%;">
+                <span class="section-label" style="color: #f59e0b;">Alpha & Freemium Builds</span>
+                <h2 class="section-title">Running Culler.ai Locally</h2>
+                <p class="section-desc">Because this is an early alpha release distributed directly through GitHub, the application is ad-hoc signed and has not yet undergone Apple's official App Store notarization check.</p>
+            </div>
+            
+            <div class="bypass-grid">
+                <div class="bypass-info">
+                    <div class="warning-banner">
+                        <div class="warning-icon">⚠️</div>
+                        <div class="warning-text">
+                            <h4>macOS Gatekeeper Warning</h4>
+                            <p>When you double-click the app for the first time, macOS may say "App is damaged and can't be opened" or "Developer cannot be verified" because of ad-hoc signature parameters.</p>
+                        </div>
+                    </div>
+                    
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        You can easily skip this security quarantine block using one of the three following methods to register a system-wide developer exemption:
+                    </p>
+                    
+                    <div class="bypass-steps">
+                        <div class="bypass-option">
+                            <div class="bypass-option-title">
+                                🖱️ Option 1: Right-Click Bypass (Recommended)
+                            </div>
+                            <p>Control-click (or right-click) the <strong>Culler.ai.app</strong> bundle in Finder, select <strong>Open</strong>, and click the confirmation dialog's <strong>Open</strong> button. macOS saves this choice automatically.</p>
+                        </div>
+                        
+                        <div class="bypass-option">
+                            <div class="bypass-option-title">
+                                ⚙️ Option 2: System Settings Option
+                            </div>
+                            <p>Open the app once. When the popup blocks you, go to macOS <strong>System Settings > Privacy & Security</strong>, scroll down to the Security category, and click <strong>Open Anyway</strong>.</p>
+                        </div>
+                        
+                        <div class="bypass-option">
+                            <div class="bypass-option-title">
+                                💻 Option 3: Command-Line Bypassing
+                            </div>
+                            <p>If you prefer using the terminal, clear the system quarantine metadata flag directly (assuming the app is in your `/Applications` directory):</p>
+                            <div class="code-block">
+                                <span id="cmd-text">xattr -r -d com.apple.quarantine /Applications/Culler.ai.app</span>
+                                <button class="copy-btn" onclick="copyCommand()">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bypass-diagram">
+                    <div class="diagram-item">
+                        <span class="diagram-header">1. App Downloaded</span>
+                        <div class="diagram-box">Culler.ai.app (Ad-hoc Signed)</div>
+                    </div>
+                    <div class="diagram-arrow">↓</div>
+                    <div class="diagram-item">
+                        <span class="diagram-header">2. macOS Gatekeeper Guard</span>
+                        <div class="diagram-box warning">Blocks app with Quarantine Flag</div>
+                    </div>
+                    <div class="diagram-arrow">↓</div>
+                    <div class="diagram-item">
+                        <span class="diagram-header">3. Exemption Triggered</span>
+                        <div class="diagram-box">Control + Click "Open" OR quarantine removal</div>
+                    </div>
+                    <div class="diagram-arrow">↓</div>
+                    <div class="diagram-item">
+                        <span class="diagram-header">4. Launch Successful</span>
+                        <div class="diagram-box active">Culler.ai Running Unlocked</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <ul class="footer-links">
+                <li><a href="#problems" class="footer-link">Problems</a></li>
+                <li><a href="#approach" class="footer-link">Approach</a></li>
+                <li><a href="#security" class="footer-link">Alpha Guide</a></li>
+                <li><a href="https://github.com/leszekbarszcz/culler" class="footer-link">GitHub Repository</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 Culler.ai. Released under the MIT License.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCommand() {
+            const text = document.getElementById("cmd-text").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => {
+                    btn.innerText = "Copy";
+                }, 2000);
+            });
+        }
+        
+        // Simple active nav highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
