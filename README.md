@@ -12,7 +12,7 @@ Culler.ai is a native macOS application designed for photographers to automate p
 
 ## Installation & Running
 
-1. Download **[Culler.ai.dmg](Culler.ai.dmg)** from this repository.
+1. Download **[Culler.ai.dmg](https://github.com/lespatrick/cullerai/raw/refs/heads/main/Culler.ai.dmg)** from this repository.
 2. Open the DMG and drag **Culler.ai.app** to your `/Applications` directory.
 
 ### macOS Gatekeeper Security Notice
