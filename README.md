@@ -32,4 +32,4 @@ For full guides and information, check out the [documentation page](https://lesp
 
 ## License
 
-Released under the MIT License.
+Copyright © 2026 Culler.ai. All rights reserved.
